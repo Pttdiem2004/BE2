@@ -11,7 +11,8 @@
                             <th>ID</th>
                             <th>Username</th>
                             <th>Email</th>
-                            <th>Quyền</th> {{-- Cột mới --}}
+                            <th>Quyền</th>
+                            <th>Order</th> {{-- Cột mới --}}
                             <th>Thao tác</th>
                         </tr>
                     </thead>
@@ -26,6 +27,10 @@
                                     <a href="{{ route('user.roleList', ['role' => $user->role ?? 'user']) }}">
                                         {{ $user->role ?? 'user' }}
                                     </a>
+                                </td>
+                                <td>
+                                    {{-- Link tới trang chi tiết đơn hàng --}}
+                                    <a href="{{ route('user.orders', ['id' => $user->id]) }}">Xem đơn hàng</a>
                                 </td>
                                 <td>
                                     <a href="{{ route('user.readUser', ['id' => $user->id]) }}">View</a> |

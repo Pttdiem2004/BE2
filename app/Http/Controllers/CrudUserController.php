@@ -102,6 +102,17 @@ class CrudUserController extends Controller
 
         return redirect("list")->withSuccess('You have signed-in');
     }
+    //ng thức orders để hiển thị đơn hàng của người dùng
+    public function orders($userId)
+    {
+        // Lấy thông tin người dùng và các đơn hàng của họ
+        $user = User::findOrFail($userId);
+        $orders = $user->orders; // Giả sử có quan hệ orders trong model User
+
+        // Trả về view với dữ liệu người dùng và đơn hàng
+        return view('crud_user.orders', compact('user', 'orders'));
+    }
+
 
     public function listUser()
     {
